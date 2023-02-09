@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  backapi:
+    container_name: backapi
+    image: backapi
+    ports:
+      - "8000:80"
+    networks:
+      - net-local
+
+  interview-test-server:
+    container_name: interview-test-server
+    image: ptsdocker16/interview-test-server
+    ports:
+      - "5001:5000"
+    networks:
+      - net-local
+
+networks:
+  net-local:
+      driver: bridge
