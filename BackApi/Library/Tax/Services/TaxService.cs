@@ -1,4 +1,4 @@
-namespace Library.Tax.Calculator.Services
+namespace Library.Back.Calculator.Services
 {
   public interface TaxService
   {

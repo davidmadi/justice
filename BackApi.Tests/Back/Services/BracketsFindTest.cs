@@ -1,4 +1,4 @@
-using Library.Tax.Calculator;
+using Library.Back.Calculator;
 
 namespace BackApi.Tests.Tax.Services;
 
@@ -26,21 +26,21 @@ public class BracketsFindTest {
   [Fact]
   public void FindTaxRate_Tax_100k_null()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(100000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(100000, this.MockBrackets());
     Assert.Null(rate);
   }
 
   [Fact]
   public void FindTaxRate_Tax_110k_null()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(110000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(110000, this.MockBrackets());
     Assert.Null(rate);
   }
 
   [Fact]
   public void FindTaxRate_Tax_117k_found()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(117000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(117000, this.MockBrackets());
     Assert.NotNull(rate);
     Assert.Equal(0.9m, rate?.rate);
   }
@@ -48,14 +48,14 @@ public class BracketsFindTest {
   [Fact]
   public void FindTaxRate_Tax_85k_null()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(85000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(85000, this.MockBrackets());
     Assert.Null(rate);
   }
 
   [Fact]
   public void FindTaxRate_Tax_75k_found()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(75000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(75000, this.MockBrackets());
     Assert.NotNull(rate);
     Assert.Equal(0.8m, rate?.rate);
   }
@@ -63,7 +63,7 @@ public class BracketsFindTest {
   [Fact]
   public void FindTaxRate_Tax_130k_found()
   {
-    var rate = IncomeTaxCalculator.FindBracketByIncome(130000, this.MockBrackets());
+    var rate = IncomeBackCalculator.FindBracketByIncome(130000, this.MockBrackets());
     Assert.NotNull(rate);
     Assert.Equal(0.9m, rate?.rate);
   }

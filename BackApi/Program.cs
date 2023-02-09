@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "BackApi",
-        Description = "A public tax api calculator"
+        Description = "A public Back api calculator"
     });
 });
 

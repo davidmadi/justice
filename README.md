@@ -1,4 +1,4 @@
-# Tax api built with netcore (net6.0)
+# Back api built with netcore (net6.0)
 ## Installation
 1 - Remove obj folder if exists
 <br/>

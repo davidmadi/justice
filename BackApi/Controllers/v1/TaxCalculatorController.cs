@@ -1,6 +1,6 @@
 using System;
 using Library.Envelope;
-using Library.Tax.Calculator;
+using Library.Back.Calculator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +9,7 @@ namespace BackApi.Controllers.v1;
 [ApiController]
 [Route("v1/api/tax")]
 
-public class TaxCalculatorController : ControllerBase
+public class BackCalculatorController : ControllerBase
 {
     [HttpGet("calculator/{year}/{income}/{raise}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -20,9 +20,9 @@ public class TaxCalculatorController : ControllerBase
             bool withCache = Request.Headers["Pragma"] != "no-cache" &&
                 Request.Headers["Cache-Control"] != "no-cache";
 
-            var taxService = Library.Tax.Calculator.Factory.GetTaxServiceBy(year);
+            var taxService = Library.Back.Calculator.Factory.GetTaxServiceBy(year);
             var brackets = taxService.FetchBrackets(year, withCache);
-            var incomeTaxResult = IncomeTaxCalculator.Calculate(year ,income, raise, brackets);
+            var incomeTaxResult = IncomeBackCalculator.Calculate(year ,income, raise, brackets);
 
             return new Response<IncomeTaxResult>(){
                 Result = incomeTaxResult,

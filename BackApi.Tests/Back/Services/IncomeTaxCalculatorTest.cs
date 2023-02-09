@@ -1,8 +1,8 @@
-using Library.Tax.Calculator;
+using Library.Back.Calculator;
 
 namespace BackApi.Tests.Tax.Services;
 
-public class IncomeTaxCalculatorTest {
+public class IncomeBackCalculatorTest {
 
   private List<Bracket> MockBrackets(){
     var brackets = new List<Bracket>();
@@ -65,7 +65,7 @@ public class IncomeTaxCalculatorTest {
   {
     decimal income = 50000;
     decimal raise = 10000;
-    var incomeTaxResult = IncomeTaxCalculator.Calculate(2019, income, raise, this.MockBrackets());
+    var incomeTaxResult = IncomeBackCalculator.Calculate(2019, income, raise, this.MockBrackets());
 
     Assert.NotNull(incomeTaxResult);
     Assert.Equal(incomeTaxResult.marginalTaxPayableAmount, 2000m);
@@ -76,7 +76,7 @@ public class IncomeTaxCalculatorTest {
   {
     decimal income = 50000;
     decimal raise = 15000;
-    var incomeTaxResult = IncomeTaxCalculator.Calculate(2019, income, raise, this.MockBrackets());
+    var incomeTaxResult = IncomeBackCalculator.Calculate(2019, income, raise, this.MockBrackets());
 
     Assert.NotNull(incomeTaxResult);
     Assert.Equal(incomeTaxResult.marginalTaxPayableAmount, 3500m);
@@ -87,7 +87,7 @@ public class IncomeTaxCalculatorTest {
   {
     decimal income = 80000;
     decimal raise = 10000;
-    var incomeTaxResult = IncomeTaxCalculator.Calculate(2019, income, raise, this.MockBrackets());
+    var incomeTaxResult = IncomeBackCalculator.Calculate(2019, income, raise, this.MockBrackets());
 
     Assert.NotNull(incomeTaxResult);
     Assert.Equal(incomeTaxResult.marginalTaxPayableAmount, 0);
@@ -99,7 +99,7 @@ public class IncomeTaxCalculatorTest {
   {
     decimal income = 80000;
     decimal raise = 10000;
-    var incomeTaxResult = IncomeTaxCalculator.Calculate(2019, income, raise, this.NoMaxMockBrackets());
+    var incomeTaxResult = IncomeBackCalculator.Calculate(2019, income, raise, this.NoMaxMockBrackets());
 
     Assert.NotNull(incomeTaxResult);
     Assert.Equal(incomeTaxResult.marginalTaxPayableAmount, 3000);

@@ -1,4 +1,4 @@
-namespace Library.Tax.Calculator
+namespace Library.Back.Calculator
 {
   public class IncomeTaxResult
   {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Library.Tax.MemoryCache;
 
-namespace Library.Tax.Calculator;
+namespace Library.Back.Calculator;
 
 public static class Factory {
 

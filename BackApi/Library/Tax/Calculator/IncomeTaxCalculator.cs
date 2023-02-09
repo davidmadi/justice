@@ -1,12 +1,12 @@
-namespace Library.Tax.Calculator;
+namespace Library.Back.Calculator;
 
-public static class IncomeTaxCalculator
+public static class IncomeBackCalculator
 {
   public static IncomeTaxResult Calculate(int year, decimal income, decimal raise, List<Bracket> brackets)
   {
     var result = new IncomeTaxResult(year);
     var sorted = brackets.OrderBy(b => b.min).ToList();
-    var incomeBracket = IncomeTaxCalculator.FindBracketByIncome(income, brackets);
+    var incomeBracket = IncomeBackCalculator.FindBracketByIncome(income, brackets);
     if(incomeBracket != null) {
       result.incomeTaxPayableAmount = ApplyRateToAmount(incomeBracket.rate, income);
 
@@ -16,7 +16,7 @@ public static class IncomeTaxCalculator
           result.thresholdPayableAmount = ApplyRateToAmount(incomeBracket.rate, thresholdTaxableWindow);
 
           decimal raiseTaxable = raise - thresholdTaxableWindow;
-          var raiseBracket = IncomeTaxCalculator.FindBracketByIncome(income+raise, brackets);
+          var raiseBracket = IncomeBackCalculator.FindBracketByIncome(income+raise, brackets);
           if (raiseBracket != null) {
             result.raiseTaxes = ApplyRateToAmount(raiseBracket.rate, raiseTaxable);
           }
