@@ -1,0 +1,21 @@
+@import '@angular/material/theming';
+
+// Define a custom typography for the theme.
+$mat-font-family: Roboto, "Helvetica Neue", sans-serif;
+$mat-typography: mat-typography-config(
+  $font-family: $mat-font-family,
+  $headline: mat-typography-level(32px, 48px, 700),
+  $subheading-2: mat-typography-level(16px, 24px, 500),
+  $body-2: mat-typography-level(14px, 20px, 400)
+);
+
+// Define a custom color palette for the theme.
+$my-teal-primary: mat-palette($mat-light-blue, 500, 900, A100);
+$my-teal-accent: mat-palette($mat-teal, 500, 700, A200);
+$my-teal-warn: mat-palette($mat-red);
+
+// Create the theme.
+$my-teal-theme: mat-light-theme($my-teal-primary, $my-teal-accent, $my-teal-warn);
+
+// Include the theme in your application.
+@include angular-material-theme($my-teal-theme);

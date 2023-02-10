@@ -1,0 +1,38 @@
+{
+  "pages": [
+    {
+      "name": "inicio",
+      "title": "Inicio",
+      "fields:": [
+        {
+          "name": "",
+          "label": "Empresa",
+          "type": "text"
+        }
+      ],
+      "navigation": [
+        {
+          "label": "Proximo",
+          "route": "second"
+        }
+      ]
+    },
+    {
+      "name": "second",
+      "title": "Segunda Pagina",
+      "fields:": [
+        {
+          "name": "",
+          "label": "Motivo",
+          "type": "text"
+        }
+      ],
+      "navigation": [
+        {
+          "label": "Proximo",
+          "route": ""
+        }
+      ]
+    }
+  ]
+}

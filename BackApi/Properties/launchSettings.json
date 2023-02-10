@@ -3,7 +3,7 @@
   "profiles": {
     "BackApi": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
+      "dotnetRunMessages": false,
       "launchBrowser": false,
       "launchUrl": "swagger/index.html",
       "applicationUrl": "http://localhost:5276;https://localhost:7000",
